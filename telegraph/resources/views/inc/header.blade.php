@@ -8,7 +8,7 @@
             <a href="{{ route ('home') }}" class="nav-link">Домой</a>
         </li>
         <li class="nav-item">
-            <a href="{{ 'form' }}" class="nav-link">Телеграф</a>
+            <a href="{{ route ('form-post') }}" class="nav-link">Телеграф</a>
         </li>
         <li class="nav-item">
             <a href="{{ route ('form-data') }}" class="nav-link">Ваши посты</a>

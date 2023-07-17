@@ -8,7 +8,7 @@ use App\Models\TelegraphText;
 
 class TextController extends Controller
 {
-    public function submit(TextRequest $req)
+    public function create(TextRequest $req)
     {
         $telegraph = new TelegraphText();
         $telegraph->name = $req->input ('name');
@@ -21,7 +21,7 @@ class TextController extends Controller
         return redirect ()->route ('home')->with ('success', 'Вы все сделали правильно и ваш пост добавлен');
     }
 
-    public function allData()
+    public function index()
     {
         $contact = new TelegraphText;
         return view ('messages', ['data' => $contact -> all()]);
@@ -39,7 +39,7 @@ class TextController extends Controller
         return view ('update-message', ['data' => $contact -> find($id)]);
     }
 
-    public function updateSubmit($id, TextRequest $req)
+    public function updateAll($id, TextRequest $req)
     {
         $telegraph = TelegraphText::find($id);
         $telegraph->name = $req->input ('name');
