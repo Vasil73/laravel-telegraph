@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('telegraph_texts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('subject');
+            $table->string('author');
+            $table->string('title');
             $table->string('email');
-            $table->text('message');
+            $table->text('text');
             $table->timestamps();
         });
     }

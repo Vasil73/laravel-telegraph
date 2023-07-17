@@ -5,20 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TextRequest;
 use App\Models\TelegraphText;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class TextController extends Controller
 {
     public function create(TextRequest $req)
     {
         $telegraph = new TelegraphText();
-        $telegraph->name = $req->input ('name');
-        $telegraph->subject = $req->input ('subject');
-        $telegraph->email = $req->input ('email');
-        $telegraph->message = $req->input ('message');
+        $telegraph->author = $req->input ( 'author' );
+        $telegraph->title = $req->input ( 'title' );
+        $telegraph->email = $req->input ( 'email' );
+        $telegraph->text = $req->input ( 'text' );
 
         $telegraph->save ();
 
-        return redirect ()->route ('home')->with ('success', 'Вы все сделали правильно и ваш пост добавлен');
+        return redirect ()->route ( 'home' )->with ( 'success', 'Вы все сделали правильно и ваш пост добавлен' );
     }
 
     public function index()
@@ -42,10 +44,10 @@ class TextController extends Controller
     public function updateAll($id, TextRequest $req)
     {
         $telegraph = TelegraphText::find($id);
-        $telegraph->name = $req->input ('name');
-        $telegraph->subject = $req->input ('subject');
+        $telegraph->author = $req->input ('author');
+        $telegraph->title = $req->input ('title');
         $telegraph->email = $req->input ('email');
-        $telegraph->message = $req->input ('message');
+        $telegraph->text = $req->input ('text');
 
         $telegraph->save ();
 

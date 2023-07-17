@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class TelegraphText extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "ip",
+        "slug",
+        "title",
+        "text",
+        "author",
+        "published",
+    ];
 }

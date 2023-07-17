@@ -22,20 +22,20 @@ class TextRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'subject' => 'required',
+            'author' => 'required',
+            'title' => 'required',
             'email' => 'required',
-            'message' => 'required|min:10|max:250'
+            'text' => 'required|min:10|max:250'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Не забывайте указать имя',
-            'subject.required' => 'Без заголовка ни как',
+            'author.required' => 'Не забывайте указать имя',
+            'title.required' => 'Без заголовка ни как',
             'email.required' => 'Напишите свой email',
-            'message.required' => 'Напишите хоть с десяток слов'
+            'text.required' => 'Напишите хоть с десяток слов'
         ];
     }
 }

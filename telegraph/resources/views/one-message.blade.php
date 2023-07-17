@@ -1,11 +1,11 @@
 @extends('layout.app')
-@section('title'){{ $data->subject }}@endsection
+@section('title'){{ $data->title }}@endsection
 @section('content')
     <div class="col-8">
-        <h2 class="mb-4">{{ $data->subject }}</h2>
+        <h2 class="mb-4">{{ $data->title }}</h2>
         <div class="alert alert-info">
-            <p>{{ $data->email }} - {{ $data->name }}</p>
-            <p>{{ $data->message }}</p>
+            <p>{{ $data->email }} - {{ $data->author }}</p>
+            <p>{{ $data->text }}</p>
             <p><small>{{ $data->created_at }}</small></p>
             <div class="d-flex justify-content-between">
                 <a href="{{ route ('form-update', $data->id) }}">
